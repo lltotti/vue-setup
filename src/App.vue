@@ -1,21 +1,23 @@
 <template>
   <div :id="myClass">
-    <h2>Hola</h2>
-    <p>{{ counter }}</p>
-    <button v-on:click="counter++" :disabled="isDisabled">
-      Cambiar de color
-    </button>
-    <button @click="isDisabled = false">Make able</button>
+    <!-- INTERATION 1 -->
+    <Navbar />
+   <!-- INTERATION 2 -->
+    <h2>Ahora en Barcelona: {{ date}}</h2>
+       
   </div>
 </template>
 
 <script>
+import Navbar from "./components/Navbar.vue";
 export default {
+  components:{
+    Navbar
+  },
   data() {
-    return {
-      myClass: "card",
-      isDisabled: true,
-      counter: 1,
+    const d = new Date();
+     return {
+      date: d.getHours()+":"+d.getMinutes()+":"+d.getSeconds(),
     };
   },
   methods: {
